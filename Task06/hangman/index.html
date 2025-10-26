@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Виселица — JS + IndexedDB</title>
+  <link rel="stylesheet" href="styles/style.css"/>
+</head>
+<body>
+  <header>
+    <h1>Виселица</h1>
+    <nav>
+      <button id="tab-new">Новая игра</button>
+      <button id="tab-list">Список партий</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Новая игра -->
+    <section id="screen-new" class="screen">
+      <div class="panel">
+        <label>Имя игрока:
+          <input id="player-name" type="text" placeholder="Введите имя" />
+        </label>
+        <button id="btn-start">Начать игру</button>
+      </div>
+
+      <div id="game-area" class="game hidden">
+        <div class="top">
+          <div>
+            <div class="label">Слово:</div>
+            <div id="word-cells" class="word"></div>
+          </div>
+          <div>
+            <div class="label">Ошибки: <span id="wrong-count">0</span>/<span id="max-wrong">6</span></div>
+            <pre id="hangman" class="hangman"></pre>
+          </div>
+        </div>
+
+        <div class="alpha-block">
+          <div class="label">Выберите букву:</div>
+          <div id="alphabet" class="alphabet"></div>
+        </div>
+
+        <div class="guess-word">
+          <input id="full-guess" type="text" placeholder="Попробуйте угадать всё слово"/>
+          <button id="btn-guess-word">Угадать слово</button>
+        </div>
+
+        <div class="log">
+          <div class="label">Попытки:</div>
+          <ol id="attempts-log"></ol>
+        </div>
+
+        <div class="status-row">
+          <span id="status"></span>
+          <button id="btn-restart" class="hidden">Сыграть ещё</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Список партий -->
+    <section id="screen-list" class="screen hidden">
+      <h2>Сохранённые партии</h2>
+      <div id="games-list"></div>
+    </section>
+
+    <!-- Повтор партии (модал) -->
+    <div id="replay-modal" class="modal hidden">
+      <div class="modal-body">
+        <h3>Повтор партии</h3>
+        <div class="replay">
+          <div>
+            <div class="label">Слово:</div>
+            <div id="replay-word" class="word"></div>
+          </div>
+          <div>
+            <div class="label">Шаг: <span id="replay-step">0</span></div>
+            <pre id="replay-hangman" class="hangman"></pre>
+          </div>
+          <div class="log">
+            <div class="label">Ходы:</div>
+            <ol id="replay-log"></ol>
+          </div>
+        </div>
+        <div class="replay-controls">
+          <button id="btn-replay-play">▶</button>
+          <button id="btn-replay-pause">⏸</button>
+          <button id="btn-replay-step">Шаг</button>
+          <button id="btn-replay-close">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
