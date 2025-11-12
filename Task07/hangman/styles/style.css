@@ -1,0 +1,276 @@
+:root {
+  --bg: #0b0c10;
+  --card: #151820;
+  --text: #e4e7ee;
+  --muted: #99a1b3;
+  --accent: #4aa3ff;
+  --danger: #ff5b5b;
+  --ok: #38d38d;
+  --border: #2a2f3a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+header {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+
+h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+nav button {
+  margin-left: 8px;
+  padding: 8px 12px;
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+nav button:hover {
+  border-color: var(--accent);
+}
+
+main {
+  padding: 20px;
+}
+
+.screen.hidden {
+  display: none;
+}
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.panel input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: #0f1117;
+  color: var(--text);
+}
+
+#btn-start {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.game.hidden {
+  display: none;
+}
+
+.game {
+  margin-top: 12px;
+  display: grid;
+  gap: 16px;
+}
+
+.top {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.label {
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.word {
+  display: flex;
+  gap: 8px;
+}
+
+.cell {
+  width: 40px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 3px solid var(--border);
+  background: #0f1117;
+  border-radius: 4px;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+.hangman {
+  background: #0f1117;
+  border: 1px solid var(--border);
+  padding: 10px;
+  border-radius: 8px;
+  min-width: 220px;
+  min-height: 150px;
+}
+
+.alphabet {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-width: 620px;
+}
+
+.alpha-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  background: #0f1117;
+  color: var(--text);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.alpha-btn:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+
+.guess-word {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.guess-word input {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: #0f1117;
+  color: var(--text);
+}
+
+#btn-guess-word {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+}
+
+.log ol {
+  margin: 6px 0 0;
+  padding-left: 20px;
+}
+
+.status-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+#status {
+  min-height: 22px;
+}
+
+#btn-restart {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+}
+
+#status.win {
+  color: var(--ok);
+}
+
+#status.lose {
+  color: var(--danger);
+}
+
+#wrong-count {
+  color: var(--danger);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+th,
+td {
+  padding: 10px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+tr:hover td {
+  background: #101319;
+}
+
+.btn {
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #0f1117;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.btn:hover {
+  border-color: var(--accent);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, .5);
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-body {
+  width: min(920px, 96vw);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.replay {
+  display: flex;
+  gap: 28px;
+}
+
+.replay-controls {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
