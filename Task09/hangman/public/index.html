@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Виселица</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Hangman</span></h1>
+        <nav>
+            <button id="nav-new-game" class="active" onclick="app.showScreen('start')">Новая игра</button>
+            <button id="nav-history" onclick="app.loadHistory()">История</button>
+        </nav>
+    </header>
+
+    <main>
+        <div id="screen-start" class="screen">
+            <div class="panel">
+                <h2>Начать новую игру</h2>
+                <input type="text" id="player-name" placeholder="Введите ваше имя" value="Игрок 1">
+                <button id="btn-start" onclick="app.startNewGame()">START</button>
+            </div>
+        </div>
+
+        <div id="screen-game" class="screen hidden">
+            <div class="game-container">
+                <div class="status-bar">
+                    <span>Игра ID: <span id="game-id" style="color: var(--text)">#</span></span>
+                    <span>Ошибки: <span id="mistakes-count" style="color: var(--danger)">0/6</span></span>
+                </div>
+
+                <div class="game-area">
+                    <div class="hangman">
+                        <div id="ascii-art"></div>
+                    </div>
+
+                    <div class="word-area">
+                        <div id="word-display" class="word">
+                        </div>
+                        
+                        <div id="game-result" class="game-result hidden"></div>
+
+                        <div id="keyboard" class="alphabet">
+                        </div>
+                        
+                        <button id="btn-restart" class="btn-small hidden" onclick="app.showScreen('start')">Играть снова</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="screen-history" class="screen hidden">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Дата</th>
+                        <th>Игрок</th>
+                        <th>Слово</th>
+                        <th>Статус</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="history-list">
+                    <!-- JS -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <div id="replay-modal" class="modal hidden">
+        <div class="modal-body">
+            <div class="modal-header">
+                <span class="modal-title">Повтор игры #<span id="replay-id"></span></span>
+                <button class="close-modal" onclick="app.closeReplay()">×</button>
+            </div>
+            
+            <div id="replay-message">Загрузка...</div>
+
+            <div class="game-area" style="justify-content: flex-start;">
+                <div class="hangman">
+                    <div id="replay-ascii"></div>
+                </div>
+                <div class="word-area" style="align-items: flex-start;">
+                    <div id="replay-word" class="word"></div>
+                    <div id="replay-keyboard" class="alphabet" style="pointer-events: none; opacity: 0.8;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
