@@ -3,6 +3,14 @@
 $dbFile = __DIR__ . '/../db/hangman.db';
 
 try {
+    if (!file_exists($dbFile)) {
+        $dbDir = dirname($dbFile);
+        if (!is_dir($dbDir)){
+            mkdir($dbDir, 0755, true);
+        }
+        touch($dbFile);
+    }
+
     $pdo = new PDO("sqlite:$dbFile");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
